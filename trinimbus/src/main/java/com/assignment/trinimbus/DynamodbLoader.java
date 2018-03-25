@@ -2,7 +2,6 @@ package com.assignment.trinimbus;
 
 import com.amazonaws.AmazonClientException;
 import com.amazonaws.auth.AWSCredentials;
-import com.amazonaws.auth.AWSStaticCredentialsProvider;
 import com.amazonaws.auth.profile.ProfileCredentialsProvider;
 import com.amazonaws.regions.Regions;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
@@ -46,7 +45,7 @@ public class DynamodbLoader {
 
 	public static AmazonDynamoDB getDynamoDb() {
 		AWSCredentials credentials = getCredentials();
-		dynamodbClient = AmazonDynamoDBClientBuilder.standard().withCredentials(new AWSStaticCredentialsProvider(credentials)).withRegion(Regions.CA_CENTRAL_1).build();
+		dynamodbClient = AmazonDynamoDBClientBuilder.standard().withRegion(Regions.CA_CENTRAL_1).build();
 		return dynamodbClient;
 	}
 
