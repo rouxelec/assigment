@@ -20,14 +20,20 @@ public class DynamodbLoader {
 	static DynamoDBMapper mapper;
 
 	static {
-		dynamodbClient = getDynamoDb();
-		dynamoDB = new DynamoDB(dynamodbClient);
-		mapper = new DynamoDBMapper(dynamodbClient);
-		createTable(mapper, TrinimbusStuff.class, 25l, 25l);
-		System.out.println("waiting " + 15 + "s...");
 		try {
+			dynamodbClient = getDynamoDb();
+			dynamoDB = new DynamoDB(dynamodbClient);
+			mapper = new DynamoDBMapper(dynamodbClient);
+			createTable(mapper, TrinimbusStuff.class, 25l, 25l);
+			System.out.println("waiting " + 15 + "s...");
 			Thread.sleep(15 * 1000);
-		} catch (InterruptedException e) {
+			TrinimbusStuff trinimbusStuff = new TrinimbusStuff("Trinimbus is awesome");
+			TrinimbusStuff trinimbusStuff2 = new TrinimbusStuff("I want to work for Trinimbus");
+			TrinimbusStuff trinimbusStuff3 = new TrinimbusStuff("Those values are from dynamodb...");
+			mapper.save(trinimbusStuff);
+			mapper.save(trinimbusStuff2);
+			mapper.save(trinimbusStuff3);
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

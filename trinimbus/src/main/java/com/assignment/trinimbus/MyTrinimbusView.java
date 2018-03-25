@@ -23,15 +23,13 @@ public class MyTrinimbusView implements Serializable {
 	static DynamoDBMapper mapper;
 
 	static {
-		dynamodbClient = DynamodbLoader.getDynamoDb();
-		dynamoDB = new DynamoDB(dynamodbClient);
-		mapper = new DynamoDBMapper(dynamodbClient);
-		TrinimbusStuff trinimbusStuff = new TrinimbusStuff("Trinimbus is awesome");
-		TrinimbusStuff trinimbusStuff2 = new TrinimbusStuff("I want to work for Trinimbus");
-		TrinimbusStuff trinimbusStuff3 = new TrinimbusStuff("Those values are from dynamodb...");
-		mapper.save(trinimbusStuff);
-		mapper.save(trinimbusStuff2);
-		mapper.save(trinimbusStuff3);
+		try {
+			dynamodbClient = DynamodbLoader.getDynamoDb();
+			dynamoDB = new DynamoDB(dynamodbClient);
+			mapper = new DynamoDBMapper(dynamodbClient);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 	}
 
 	/**
