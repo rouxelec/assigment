@@ -44,7 +44,7 @@ public class DynamodbLoader {
 	}
 
 	public static AmazonDynamoDB getDynamoDb() {
-		AWSCredentials credentials = getCredentials();
+		// AWSCredentials credentials = getCredentials();
 		dynamodbClient = AmazonDynamoDBClientBuilder.standard().withRegion(Regions.CA_CENTRAL_1).build();
 		return dynamodbClient;
 	}
