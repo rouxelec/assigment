@@ -25,14 +25,6 @@ public class DynamodbLoader {
 			dynamoDB = new DynamoDB(dynamodbClient);
 			mapper = new DynamoDBMapper(dynamodbClient);
 			createTable(mapper, TrinimbusStuff.class, 25l, 25l);
-			System.out.println("waiting " + 15 + "s...");
-			Thread.sleep(15 * 1000);
-			TrinimbusStuff trinimbusStuff = new TrinimbusStuff("Trinimbus is awesome");
-			TrinimbusStuff trinimbusStuff2 = new TrinimbusStuff("I want to work for Trinimbus");
-			TrinimbusStuff trinimbusStuff3 = new TrinimbusStuff("Those values are from dynamodb...");
-			mapper.save(trinimbusStuff);
-			mapper.save(trinimbusStuff2);
-			mapper.save(trinimbusStuff3);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -72,6 +64,8 @@ public class DynamodbLoader {
 			createTableRequest = mapper.generateCreateTableRequest(clazz);
 			createTableRequest.setProvisionedThroughput(new ProvisionedThroughput(readCapacityUnits, writeCapacityUnits));
 			CreateTableResult createTableResult = dynamodbClient.createTable(createTableRequest);
+			System.out.println("waiting " + 15 + "s...");
+			Thread.sleep(15 * 1000);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

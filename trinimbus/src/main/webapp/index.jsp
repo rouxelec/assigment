@@ -1,4 +1,4 @@
-<%@ page import="java.util.List" %>
+<%@ page import="com.assignment.trinimbus.DynamodbLoader" %>
 
 <html>
 <body>

@@ -22,9 +22,19 @@
     <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
     <load-on-startup>1</load-on-startup>
   </servlet>
+  <servlet>
+  	<servlet-name>CreateTableServlet</servlet-name>
+  	<display-name>CreateTableServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.assignment.trinimbus.CreateTableServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
     <servlet-name>Faces Servlet</servlet-name>
     <url-pattern>/faces/*</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>CreateTableServlet</servlet-name>
+  	<url-pattern>/CreateTableServlet</url-pattern>
   </servlet-mapping>
   <welcome-file-list>
     <welcome-file>faces/index.xhtml</welcome-file>
