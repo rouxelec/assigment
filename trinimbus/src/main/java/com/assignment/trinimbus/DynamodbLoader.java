@@ -25,6 +25,12 @@ public class DynamodbLoader {
 			dynamoDB = new DynamoDB(dynamodbClient);
 			mapper = new DynamoDBMapper(dynamodbClient);
 			createTable(mapper, TrinimbusStuff.class, 25l, 25l);
+			TrinimbusStuff trinimbusStuff = new TrinimbusStuff("Trinimbus is awesome");
+			TrinimbusStuff trinimbusStuff2 = new TrinimbusStuff("I want to work for Trinimbus");
+			TrinimbusStuff trinimbusStuff3 = new TrinimbusStuff("Those values are from dynamodb...");
+			mapper.save(trinimbusStuff);
+			mapper.save(trinimbusStuff2);
+			mapper.save(trinimbusStuff3);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
