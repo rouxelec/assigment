@@ -64,8 +64,8 @@ public class DynamodbLoader {
 			createTableRequest = mapper.generateCreateTableRequest(clazz);
 			createTableRequest.setProvisionedThroughput(new ProvisionedThroughput(readCapacityUnits, writeCapacityUnits));
 			CreateTableResult createTableResult = dynamodbClient.createTable(createTableRequest);
-			System.out.println("waiting " + 15 + "s...");
-			Thread.sleep(15 * 1000);
+			System.out.println("waiting " + 5 + "s...");
+			Thread.sleep(5 * 1000);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
