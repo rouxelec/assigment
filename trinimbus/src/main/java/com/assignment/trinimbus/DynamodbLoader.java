@@ -71,7 +71,7 @@ public class DynamodbLoader {
 			createTableRequest.setProvisionedThroughput(new ProvisionedThroughput(readCapacityUnits, writeCapacityUnits));
 			CreateTableResult createTableResult = dynamodbClient.createTable(createTableRequest);
 			System.out.println("waiting " + 5 + "s...");
-			Thread.sleep(5 * 1000);
+			Thread.sleep(10 * 1000);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
